@@ -1,8 +1,8 @@
-package com.shenhangyu.icard.icardweb.controller;
+package com.shenhangyu.ck.memento.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.shenhangyu.icard.icardweb.bean.CardInfoBean;
-import com.shenhangyu.icard.icardweb.service.CardInfoService;
+import com.shenhangyu.ck.memento.bean.CardInfoBean;
+import com.shenhangyu.ck.memento.service.impl.CardInfoServiceImpl;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,7 +31,7 @@ public class CardInfoController {
 	private static Logger logger = LoggerFactory.getLogger(CardInfoController.class);
 	
     @Autowired(required = false)
-    private CardInfoService CardInfoService;
+    private CardInfoServiceImpl CardInfoService;
     
     @ApiOperation(value = "根据卡号更新信息",notes="根据卡号更新信息",httpMethod="POST",response=CardInfoBean.class)
     @PostMapping("/getCardInfoBean")

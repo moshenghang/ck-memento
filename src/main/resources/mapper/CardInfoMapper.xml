@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.shenhangyu.icard.icardweb.mapper.CardInfoMapper">
-	<resultMap type="com.shenhangyu.icard.icardweb.bean.CardInfoBean" id="cardInfoResultMap">
+<mapper namespace="com.shenhangyu.ck.memento.mapper.CardInfoMapper">
+	<resultMap type="com.shenhangyu.ck.memento.bean.CardInfoBean" id="cardInfoResultMap">
         <result property="id" column="id"/>
         <result property="cardNo" column="card_no"/>
         <result property="cardType" column="card_type"/>

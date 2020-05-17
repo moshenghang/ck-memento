@@ -1,7 +1,7 @@
 /**
  * 版权所有©深航渔
  */
-package com.shenhangyu.icard.icardweb.config;
+package com.shenhangyu.ck.memento.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;

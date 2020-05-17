@@ -1,23 +1,21 @@
-package com.shenhangyu.icard.icardweb;
+package com.shenhangyu.ck.memento;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.converter.HttpMessageConverter;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @EnableEurekaClient
 @SpringBootApplication
-public class IcardWebApplication {
+public class ICKMementoApplication {
 
 	/**
 	 * 使用@Bean注解方式fastJsonHttpMessageConvert解析对象
@@ -37,7 +35,7 @@ public class IcardWebApplication {
 	}
 	
     public static void main(String[] args) {
-        SpringApplication.run(IcardWebApplication.class, args);
+        SpringApplication.run(ICKMementoApplication.class, args);
     }
 
 }

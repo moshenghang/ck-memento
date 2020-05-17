@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	<properties>
-		<Property name="project-name">icard-web</Property>
+		<Property name="project-name">ck-memento</Property>
 		<Property name="log-path">E:/applog/${project-name}</Property>
 	</properties>
 	<appenders>

@@ -1,11 +1,10 @@
 /**
  * 版权所有©深航渔
  */
-package com.shenhangyu.icard.icardweb.config;
+package com.shenhangyu.ck.memento.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
-import com.shenhangyu.icard.icardweb.security.IDecryption;
 
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -36,8 +35,7 @@ public class IMyBatisConfig {
     private static Logger logger = LoggerFactory.getLogger(IMyBatisConfig.class);
     @Autowired
     private IDruidConfig iDruidConfig;
-    @Autowired
-    private IDecryption iDecryption;
+
     @Bean(name="dataSource")
     public DataSource druiDataSource(){
         logger.info("druidSourceConfig:{}",iDruidConfig);

@@ -1,7 +1,7 @@
 /**
  *版权所有©深航渔
  */
-package com.shenhangyu.icard.icardweb.controller;
+package com.shenhangyu.ck.memento.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,10 +1,9 @@
 /**
  * 版权所有©深航渔
  */
-package com.shenhangyu.icard.icardweb.config;
+package com.shenhangyu.ck.memento.config;
 
 import org.apache.commons.codec.binary.Base64;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
