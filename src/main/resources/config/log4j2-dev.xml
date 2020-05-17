@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<properties>
+		<Property name="project-name">icard-web</Property>
+		<Property name="log-path">E:/applog/${project-name}</Property>
+	</properties>
+	<appenders>
+		<!-- 配置控制台输出日志 -->
+		<Console name="Console" target="SYSTEEM_OUT" ignoreException="false">
+			<!-- 日志打印格式 %d:时间,%level:日志级别,%t:线程名：%X:tradeI,%c:类名,%msg:日志输出信息,%n:换行 -->
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} [${hostName}] [${project-name}] [%-5level] [%t] [%X{tradeId}] %c{1} - %msg%n"/>
+		</Console>
+		<!-- 配置log日志文件 -->
+		<RollingFile name="LogRollingFile" fileName="${log-path}/${project-name}-log.log"
+			filePattern="${log-path}/$${date:yyyy-MM}/${project-name}-log-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} [${hostName}] [${project-name}] [%-5level] [%t] [%X{tradeId}] %c{1} - %msg%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="100MB"/>
+			</Policies>
+			<!-- 最多保存100份gz文件 -->
+			<DefaultRolloverStrategy max="100">
+				<Delete basePath="${log-path}" maxDepth="2">
+					<IfFileName glob="/${project-name}-log-*.log.gz"/>
+					<!-- 最多保存15天 -->
+					<IfLastModified age="15d"/>
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+		<!-- 配置sql日志文件 -->
+		<RollingFile name="SqlRolling" fileName="${log-path}/${project-name}-sql.log"
+			filePattern="${log-path}/$${date:yyyy-MM}/${project-name}-log-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} [${hostName}] [${project-name}] [%-5level] [%t] [%X{tradeId}] %c{1} - %msg%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="100MB"/>
+			</Policies>
+			<!-- 最多保存100份gz文件 -->
+			<DefaultRolloverStrategy max="100">
+				<Delete basePath="${log-path}" maxDepth="2">
+					<IfFileName glob="/${project-name}-sql-*.log.gz"/>
+					<!-- 最多保存15天 -->
+					<IfLastModified age="15d"/>
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+		<!-- 配置error日志文件 -->
+		<RollingFile name="ErrorRolling" fileName="${log-path}/${project-name}-error.log"
+			filePattern="${log-path}/$${date:yyyy-MM}/${project-name}-log-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} [${hostName}] [${project-name}] [%-5level] [%t] [%X{tradeId}] %c{1} - %msg%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="100MB"/>
+			</Policies>
+			<!-- 最多保存100份gz文件 -->
+			<DefaultRolloverStrategy max="100">
+				<Delete basePath="${log-path}" maxDepth="2">
+					<IfFileName glob="/${project-name}-sql-*.log.gz"/>
+					<!-- 最多保存15天 -->
+					<IfLastModified age="15d"/>
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+	</appenders>
+	<loggers>
+		<root level="info">
+			<appender-ref ref="Console"/>
+			<appender-ref ref="LogRollingFile"/>
+			<appender-ref ref="ErrorRollingFile"/>
+		</root>
+		<logger name="com.shenhangyu.icard.icardweb.mapper" level="TRACE" aditivity="true">
+			<level value="TRACE"/>
+			<appender-ref ref="SqlRollingFile"/>
+		</logger>
+	</loggers>
+</configuration>

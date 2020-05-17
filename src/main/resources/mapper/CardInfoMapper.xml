@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenhangyu.icard.icardweb.mapper.CardInfoMapper">
+	<resultMap type="com.shenhangyu.icard.icardweb.bean.CardInfoBean" id="cardInfoResultMap">
+        <result property="id" column="id"/>
+        <result property="cardNo" column="card_no"/>
+        <result property="cardType" column="card_type"/>
+        <result property="idNo" column="id_no"/>
+        <result property="idType" column="id_type"/>
+        <result property="userZhName" column="user_zh_name"/>
+        <result property="userEnName" column="user_en_name"/>
+        <result property="mobilePhone" column="mobile_phone"/>
+        <result property="telephone" column="telephone"/>
+        <result property="homeAddress" column="home_address"/>
+        <result property="companyAddress" column="company_address"/>
+        <result property="validityDate" column="validity_date"/>
+        <result property="openTime" column="open_time"/>
+        <result property="actTime" column="act_time"/>
+        <result property="cardStatus" column="card_status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createOper" column="create_oper"/>
+        <result property="modifyTime" column="modify_time"/>
+        <result property="modifyOper" column="modify_oper"/>
+    </resultMap>
+    <sql id="all_Column_list">
+    	id,card_no,card_type,id_no,id_type,user_zh_name,user_en_name,
+    	mobile_phone,telephone,home_address,company_address,validity_date,
+    	open_time,act_time,card_status,create_time,create_oper,modify_time,modify_oper
+    </sql>
+	<select id="selectAllCardInfoBeans" resultMap="cardInfoResultMap">
+		select * from card_info
+	</select>
+	<select id="queryICardInfo" resultMap="cardInfoResultMap" parameterType="java.lang.String">
+		select * from card_info where user_zh_name=#{userZhName,jdbcType=VARCHAR}
+	</select>
+</mapper>
